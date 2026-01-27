@@ -1,0 +1,1202 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gruppo ATIS – Sicurezza • Ambiente • Qualità</title>
+  <meta name="description" content="Consulenza integrata per Sicurezza sul Lavoro, Ambiente e Qualità. DVR, POS, formazione, autorizzazioni ambientali, analisi chimico-fisiche e microbiologiche." />
+
+  <!--
+    Restyling UI (v1)
+    - layout più “premium”, tipografia migliorata, micro-animazioni
+    - mobile menu + pulsante “torna su”
+    - sezione testimonianze + FAQ (puoi sostituire i testi)
+    - supporto Dark Mode (toggle)
+  -->
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --surface: rgba(255,255,255,.06);
+      --card: rgba(255,255,255,.08);
+      --card2: rgba(255,255,255,.10);
+      --text: #e9eefc;
+      --muted: rgba(233,238,252,.72);
+      --line: rgba(233,238,252,.14);
+
+      --brand: #5eead4;     /* verde acqua */
+      --brand2:#60a5fa;     /* blu */
+      --brand3:#a78bfa;     /* viola */
+      --danger:#fb7185;
+
+      --shadow: 0 18px 50px rgba(0,0,0,.40);
+      --shadow2: 0 12px 24px rgba(0,0,0,.25);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1180px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    /* Light theme */
+    [data-theme="light"]{
+      --bg:#ffffff;
+      --surface: rgba(15,23,42,.04);
+      --card: rgba(15,23,42,.04);
+      --card2: rgba(15,23,42,.06);
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+
+      --brand:#0f766e;
+      --brand2:#0b3a5a;
+      --brand3:#7c3aed;
+
+      --shadow: 0 18px 50px rgba(2,6,23,.12);
+      --shadow2: 0 12px 24px rgba(2,6,23,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(900px 420px at 12% 0%, rgba(94,234,212,.20), transparent 60%),
+        radial-gradient(900px 420px at 90% 10%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 420px at 55% 95%, rgba(167,139,250,.10), transparent 55%),
+        var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+      clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(to bottom, rgba(0,0,0,.45), rgba(0,0,0,.15));
+      backdrop-filter:saturate(160%) blur(10px);
+    }
+    [data-theme="light"] .topbar{
+      background: linear-gradient(to bottom, rgba(255,255,255,.90), rgba(255,255,255,.72));
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:6px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width: 240px;
+    }
+    .brand-logo{
+      height:180px;
+      width:300px;
+      object-fit:contain;
+      display:block;
+      margin:-10px 0;
+    }
+    .brand h1{font-size:14px; margin:0; letter-spacing:.3px}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center}
+    .navlink{
+      font-size:13px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid transparent;
+      color:var(--muted);
+      transition: .2s ease;
+    }
+    .navlink:hover{border-color:var(--line); color:var(--text); background:var(--surface)}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      font-weight:650;
+      font-size:14px;
+      gap:10px;
+      transition:.2s ease;
+      white-space:nowrap;
+      background: var(--surface);
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: var(--shadow2)}
+    .btn-primary{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      border-color: transparent;
+      color: #001018;
+      box-shadow: 0 16px 40px rgba(94,234,212,.18);
+    }
+    [data-theme="light"] .btn-primary{color:#fff}
+    .btn-ghost{background: transparent}
+    .btn-ghost:hover{background: var(--surface)}
+    .btn-icon{padding:10px 12px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px;
+      color:var(--muted);
+      padding:7px 10px;
+      border-radius:999px;
+      background: var(--surface);
+      border:1px solid var(--line);
+      width:fit-content;
+    }
+
+    /* Mobile menu */
+    .menu-btn{display:none}
+    .mobile-panel{
+      display:none;
+      border-top:1px solid var(--line);
+      padding:12px 0 16px;
+    }
+    .mobile-panel .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .mobile-panel a{display:block}
+    .divider{height:1px; background:var(--line); margin:10px 0}
+
+    /* Hero */
+    .hero{
+      padding:64px 0 26px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero h2{
+      margin:14px 0 10px;
+      font-size:46px;
+      line-height:1.06;
+      letter-spacing:-.9px;
+    }
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:16px;
+      max-width:66ch;
+    }
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+    .glass{
+      background: linear-gradient(180deg, var(--card2), var(--card));
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-right{
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-right::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(500px 240px at 20% 10%, rgba(94,234,212,.20), transparent 60%),
+                  radial-gradient(520px 260px at 90% 25%, rgba(96,165,250,.20), transparent 60%),
+                  radial-gradient(520px 260px at 55% 90%, rgba(167,139,250,.18), transparent 60%);
+      filter: blur(2px);
+      opacity:.9;
+    }
+    .hero-right > *{position:relative; z-index:1}
+    .mini-cards{display:grid; gap:12px}
+    .mini-card{
+      padding:14px 14px 12px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+    }
+    [data-theme="light"] .mini-card{background:#fff}
+    .mini-card strong{display:block; font-size:14px; margin-bottom:4px}
+    .mini-card span{color:var(--muted); font-size:13px}
+
+    .hero-visual{
+      margin-top:14px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      overflow:hidden;
+    }
+    [data-theme="light"] .hero-visual{background: rgba(15,23,42,.04)}
+    .hero-visual img{display:block; width:100%; height:auto; object-fit:contain}
+
+    /* Sections */
+    .section{padding:54px 0}
+    .quick-form{display:grid; gap:10px; margin-top:12px}
+    .quick-form input,
+    .quick-form textarea{
+      background: var(--surface);
+      border:1px solid var(--line);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      font:inherit;
+    }
+    .quick-form textarea{min-height:110px; resize:vertical}
+    .quick-form .btn{width:fit-content}
+
+    [data-page="home"] #servizi .card ul li:nth-child(n+4){display:none}
+    [data-page="home"] #metodo .ticks li:nth-child(n+4){display:none}
+    [data-page="home"] #faq details:nth-of-type(n+3){display:none}
+
+    [data-page="servizi"] main > section:not(#servizi){display:none}
+    [data-page="metodo"] main > section:not(#metodo){display:none}
+    [data-page="faq"] main > section:not(#faq){display:none}
+    [data-page="contatti"] main > section:not(#contatti){display:none}
+    [data-page="laboratorio"] main > section:not(#servizi){display:none}
+    [data-page="laboratorio"] #servizi .card:not(#laboratorio){display:none}
+    [data-page="preventivo"] main > section:not(#preventivo){display:none}
+
+    .media-only{padding-top:24px}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px;
+      margin-bottom:14px;
+      flex-wrap:wrap;
+    }
+    .section h3{margin:0; font-size:26px; letter-spacing:-.25px}
+    .section p.lead{margin:0; color:var(--muted); max-width:90ch}
+
+    .cards3{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:16px;
+      margin-top:18px;
+    }
+    .card{
+      padding:18px;
+      min-height: 210px;
+      transition: .2s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(420px 240px at 10% 0%, rgba(94,234,212,.14), transparent 65%),
+                  radial-gradient(420px 240px at 100% 10%, rgba(96,165,250,.12), transparent 60%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .card > *{position:relative; z-index:1}
+    .card:hover{transform: translateY(-2px)}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px;
+      color:var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      background: var(--surface);
+      border:1px solid var(--line);
+      width:fit-content;
+      margin-bottom:10px;
+    }
+    .icon{
+      width:30px; height:30px; border-radius:10px;
+      background: linear-gradient(135deg, rgba(94,234,212,.20), rgba(96,165,250,.20));
+      display:grid; place-items:center;
+      font-weight:800;
+    }
+    .card h4{margin:8px 0 8px; font-size:18px}
+    .card ul{margin:0; padding-left:18px; color:var(--muted); font-size:14px}
+    .card li{margin:6px 0}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .panel{padding:18px}
+    .ticks{margin:12px 0 0; padding:0; list-style:none}
+    .ticks li{
+      margin:10px 0;
+      padding-left:30px;
+      position:relative;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .ticks li::before{
+      content:"✓";
+      position:absolute; left:0; top:0;
+      width:20px; height:20px;
+      border-radius:7px;
+      display:grid; place-items:center;
+      background: rgba(94,234,212,.18);
+      color: var(--brand);
+      font-weight:900;
+    }
+
+    /* Stats */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:12px;
+      margin-top:16px;
+    }
+    .stat{padding:18px}
+    .stat b{display:block; font-size:26px; letter-spacing:-.6px}
+    .stat span{color:var(--muted); font-size:13px}
+
+    /* Testimonials */
+    .quotes{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:14px;
+      margin-top:18px;
+    }
+    .quote{padding:18px}
+    .quote p{margin:0 0 12px; color:var(--muted)}
+    .quote .who{display:flex; align-items:center; gap:10px}
+    .avatar{
+      width:38px; height:38px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(94,234,212,.22), rgba(96,165,250,.22));
+      border:1px solid var(--line);
+    }
+    .who b{display:block; font-size:13px}
+    .who span{display:block; font-size:12px; color:var(--muted)}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:14px 16px;
+      background: var(--surface);
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:650}
+    details p{margin:10px 0 0; color:var(--muted)}
+
+    /* CTA */
+    .cta{
+      padding:26px;
+    }
+    .cta-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:center;
+    }
+    .cta h3{margin:0 0 6px; font-size:22px}
+    .cta p{margin:0; color:var(--muted)}
+    .cta .btn{
+      justify-self:end;
+      border-color:transparent;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#001018;
+    }
+    [data-theme="light"] .cta .btn{color:#fff}
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:26px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .foot-grid{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .small-links a{margin-right:12px; color:var(--muted)}
+    .small-links a:hover{color:var(--text)}
+
+    /* Back to top */
+    .to-top{
+      position:fixed;
+      right:16px; bottom:16px;
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: var(--surface);
+      display:grid; place-items:center;
+      box-shadow: var(--shadow2);
+      cursor:pointer;
+      opacity:0; transform: translateY(8px);
+      transition: .2s ease;
+      z-index:70;
+    }
+    .to-top.show{opacity:1; transform: translateY(0)}
+    .to-top:active{transform: translateY(1px)}
+
+    /* Motion */
+    @media (prefers-reduced-motion: no-preference){
+      .reveal{opacity:0; transform: translateY(10px); transition: .6s ease}
+      .reveal.show{opacity:1; transform: translateY(0)}
+    }
+
+    @media (max-width: 980px){
+      .topbar-inner{padding:8px 0}
+      .hero-grid{grid-template-columns: 1fr}
+      .cards3{grid-template-columns: 1fr}
+      .split{grid-template-columns: 1fr}
+      .stats{grid-template-columns: 1fr 1fr}
+      .quotes{grid-template-columns: 1fr}
+      .cta-grid{grid-template-columns: 1fr}
+      .cta .btn{justify-self:start}
+      .hero h2{font-size:36px}
+      nav{display:none}
+      .menu-btn{display:inline-flex; padding:9px 12px; font-size:13px}
+      .mobile-panel{display:block}
+      .brand{min-width:auto; gap:6px}
+      .brand-logo{height:36px}
+      .topbar-inner{align-items:center}
+    }
+
+    @media (max-width: 520px){
+      .stats{grid-template-columns: 1fr}
+      .topbar-inner{gap:10px}
+      .brand-logo{height:32px}
+      .topbar .wrap{padding:0 12px}
+      .mobile-panel{padding:10px 0 12px}
+      .mobile-panel .grid{gap:8px}
+      .mobile-panel .btn{padding:10px 14px; font-size:13px}
+      .mobile-panel .navlink{padding:8px 10px; font-size:12px}
+      .chip{padding:6px 9px; font-size:11px}
+      .hero-actions .btn{padding:11px 14px; font-size:13px}
+      .card{padding:16px}
+      .card h4{font-size:17px}
+      .card ul{font-size:13px}
+      .card li{margin:4px 0}
+      details{padding:12px 14px}
+      summary{font-size:14px}
+      .quote{padding:16px}
+      .quote p{font-size:13px}
+      .section{padding:42px 0}
+      .section h3{font-size:22px}
+      .section p.lead{font-size:14px}
+      .cta{padding:20px}
+      .cta h3{font-size:20px}
+      .cta .btn{padding:11px 14px; font-size:13px}
+      footer{padding:18px 0; font-size:12px}
+      .foot-grid{gap:10px}
+      .small-links a{margin-right:10px}
+      footer .foot-grid div{line-height:1.45}
+      footer .foot-grid a{display:inline-block}
+      footer div[style*="margin-top:12px"]{margin-top:8px}
+      .small-links a:not(:last-child)::after{
+        content:" •";
+        margin:0 6px 0 4px;
+      }
+    }
+    @media (max-width: 400px){
+      .hero h2{font-size:30px}
+      .hero p{font-size:14px}
+      .hero-actions{gap:8px}
+      .chip{font-size:10px}
+    }
+  
+    /* Media blocks */
+    .media-strip{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:12px;
+      margin-top:18px;
+    }
+    .media{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      overflow:hidden;
+      padding:12px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-height: 110px;
+    }
+    [data-theme="light"] .media{background:#fff}
+    .photo-frame{
+      position:relative;
+      overflow:hidden;
+    }
+    .photo-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.06) brightness(.98);
+      transform: scale(1.02);
+    }
+    .photo-frame::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(135deg, rgba(0,0,0,.30), rgba(0,0,0,.05));
+      pointer-events:none;
+    }
+    [data-theme="light"] .photo-frame::after{
+      background: linear-gradient(135deg, rgba(15,23,42,.12), rgba(15,23,42,.02));
+    }
+    .media-photo{
+      border-radius:12px;
+      flex:0 0 140px;
+      width:140px;
+      aspect-ratio:16/9;
+      background: rgba(0,0,0,.22);
+    }
+    .media strong{display:block; font-size:14px; margin-bottom:4px}
+    .media span{display:block; color:var(--muted); font-size:13px}
+    .card-photo{
+      border-radius: 16px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.14);
+      margin-top:12px;
+      aspect-ratio:16/9;
+    }
+    [data-theme="light"] .card-photo{background:#fff}
+    @media (max-width:980px){
+      .media-strip{grid-template-columns: 1fr}
+      .media-photo{width:120px; flex-basis:120px}
+    }
+
+  </style>
+</head>
+
+<body data-theme="dark" data-page="home">
+
+  <!-- Inline SVG symbols (no external assets) -->
+  <svg class="sr-only" width="0" height="0" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="atisGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="var(--brand)"/>
+        <stop offset="1" stop-color="var(--brand2)"/>
+      </linearGradient>
+
+      <symbol id="ico-helmet" viewBox="0 0 64 64">
+        <path d="M10 40c0-12 10-22 22-22s22 10 22 22v8H10v-8Z" fill="url(#atisGrad)" opacity=".85"/>
+        <path d="M32 18v18" stroke="rgba(233,238,252,.85)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M14 46h36" stroke="rgba(233,238,252,.65)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M22 20c2-5 7-8 10-8s8 3 10 8" fill="none" stroke="rgba(233,238,252,.55)" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="ico-leaf" viewBox="0 0 64 64">
+        <path d="M52 12C32 12 14 24 14 44c0 6 4 10 10 10 20 0 28-18 28-42Z" fill="url(#atisGrad)" opacity=".9"/>
+        <path d="M18 46c10-10 20-16 30-18" fill="none" stroke="rgba(233,238,252,.75)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M30 36c-2 6-2 12 0 18" fill="none" stroke="rgba(233,238,252,.45)" stroke-width="3" stroke-linecap="round"/>
+      </symbol>
+
+      <symbol id="ico-flask" viewBox="0 0 64 64">
+        <path d="M26 10h12" stroke="rgba(233,238,252,.65)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M28 10v14l-12 18a10 10 0 0 0 8 16h16a10 10 0 0 0 8-16L36 24V10" fill="url(#atisGrad)" opacity=".85"/>
+        <path d="M22 42h20" stroke="rgba(233,238,252,.65)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="26" cy="48" r="2.3" fill="rgba(233,238,252,.75)"/>
+        <circle cx="36" cy="51" r="2.0" fill="rgba(233,238,252,.6)"/>
+      </symbol>
+
+    </defs>
+  </svg>
+
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <a class="brand" href="#top" aria-label="Home Gruppo ATIS">
+          <img class="brand-logo" src="assetsimg/logointestaione.jpeg" alt="Gruppo ATIS Soc. Coop." />
+          <div class="sr-only">
+            <h1>GRUPPO ATIS</h1>
+            <p>Sicurezza • Ambiente • Qualità</p>
+          </div>
+        </a>
+
+        <nav aria-label="Menu principale">
+          <a class="navlink" href="servizi.html">Servizi</a>
+          <a class="navlink" href="metodo.html">Metodo</a>
+          <a class="navlink" href="laboratorio.html">Laboratorio</a>
+          <a class="navlink" href="faq.html">FAQ</a>
+          <a class="navlink" href="contatti.html">Contatti</a>
+          <a class="btn btn-primary" href="contatti.html">Richiedi consulenza</a>
+          <button class="btn btn-icon" id="themeBtn" type="button" aria-label="Cambia tema">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+          </button>
+        </nav>
+
+        <button class="btn menu-btn" id="menuBtn" type="button" aria-controls="mobilePanel" aria-expanded="false">
+          ☰ Menu
+        </button>
+      </div>
+
+      <!-- Mobile panel -->
+      <div class="mobile-panel" id="mobilePanel" hidden>
+        <div class="grid">
+          <a class="navlink" href="servizi.html">Servizi</a>
+          <a class="navlink" href="metodo.html">Metodo</a>
+          <a class="navlink" href="laboratorio.html">Laboratorio</a>
+          <a class="navlink" href="faq.html">FAQ</a>
+          <a class="navlink" href="contatti.html">Contatti</a>
+          <div class="divider"></div>
+          <a class="btn btn-primary" href="contatti.html">Richiedi consulenza</a>
+          <button class="btn" id="themeBtnMobile" type="button">
+            <span id="themeIconMobile" aria-hidden="true">🌙</span> Tema
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="chip">● Consulenza integrata per aziende ed enti pubblici</div>
+
+            <h2>Sicurezza, Ambiente e Qualità<br/>con un approccio tecnico e concreto.</h2>
+
+            <p>
+              Supportiamo le imprese nell’adeguamento normativo e nella gestione operativa:
+              <strong>DVR, POS, formazione, autorizzazioni ambientali</strong> e
+              <strong>analisi chimico-fisiche e microbiologiche</strong>.
+              Un unico referente, una struttura di lavoro chiara, risultati misurabili.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="contatti.html">Richiedi un preventivo</a>
+              <a class="btn btn-ghost" href="servizi.html">Scopri i servizi</a>
+            </div>
+
+            <div style="height:14px"></div>
+
+            <div class="chip">⚡ Risposta rapida • Documenti chiari • Supporto operativo</div>
+          </div>
+
+          <aside class="glass hero-right reveal" aria-label="Punti di forza">
+            <div class="mini-cards">
+              <div class="mini-card">
+                <strong>Conformità normativa</strong>
+                <span>Supporto tecnico per D.Lgs. 81/08, D.Lgs. 152/06 e normativa tecnica applicabile.</span>
+              </div>
+              <div class="mini-card">
+                <strong>Approccio operativo</strong>
+                <span>Analisi → Piano d’intervento → Documenti → Verifica: una filiera completa e tracciabile.</span>
+              </div>
+              <div class="mini-card">
+                <strong>Laboratorio e monitoraggi</strong>
+                <span>Campionamenti e analisi per controlli ambientali, igiene e sicurezza.</span>
+              </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+              <img src="assetsimg/logointestaione.jpeg" alt="" width="720" height="320" loading="lazy" />
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMMAGINI (a tema) -->
+    <section class="section media-only" aria-label="Immagini a tema">
+      <div class="wrap">
+        <div class="media-strip">
+          <div class="glass media reveal">
+            <div class="media-photo photo-frame" aria-hidden="true">
+              <img src="assetsimg/sicurezza.jpg" alt="Tecnico con DPI per sicurezza sul lavoro" loading="lazy" />
+            </div>
+            <div>
+              <strong>Documenti e procedure</strong>
+              <span>DVR, POS, procedure operative e audit: ordine e tracciabilità.</span>
+            </div>
+          </div>
+          <div class="glass media reveal">
+            <div class="media-photo photo-frame" aria-hidden="true">
+              <img src="assetsimg/ambiente.jpg" alt="Campionamento ambientale in natura" loading="lazy" />
+            </div>
+            <div>
+              <strong>Monitoraggi e misure</strong>
+              <span>Rumore, vibrazioni, polveri, aria: valutazioni tecniche e report chiari.</span>
+            </div>
+          </div>
+          <div class="glass media reveal">
+            <div class="media-photo photo-frame" aria-hidden="true">
+              <img src="assetsimg/laboratorio.jpg" alt="Analisi in laboratorio con strumenti" loading="lazy" />
+            </div>
+            <div>
+              <strong>Laboratorio</strong>
+              <span>Analisi chimico-fisiche e microbiologiche per controlli ambientali e igiene.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALISI & LABORATORIO -->
+    <section class="section" id="analisi">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Analisi & Laboratorio</h3>
+            <p class="lead">Acque (reflue, potabili, di processo)</p>
+            <p class="lead">Offriamo un supporto completo per il controllo analitico e la gestione tecnica delle acque,
+              con impostazione coerente rispetto alla normativa e agli obiettivi del cliente (conformità,
+              autocontrollo, ottimizzazione impianto, riduzione criticità).</p>
+          </div>
+          <a class="btn" href="contatti.html">Richiedi un supporto analitico</a>
+        </div>
+
+        <div class="split">
+          <div class="glass panel reveal">
+            <h4>Ambiti principali</h4>
+            <ul class="ticks">
+              <li><strong>Acque reflue industriali e civili</strong>: verifiche di conformità allo scarico, controlli
+                periodici, supporto alla gestione di impianti di trattamento (verifica prestazioni, criticità
+                ricorrenti, stabilità del processo).</li>
+              <li><strong>Acque potabili</strong>: controlli di potabilità, piani di campionamento, gestione non
+                conformità (parametri microbiologici e chimici, trend, azioni correttive).</li>
+              <li><strong>Acque di processo</strong>: monitoraggi per qualità produttiva e prevenzione problemi
+                (depositi, corrosione, contaminazioni, stabilità di ciclo, riuso e ricircolo).</li>
+            </ul>
+          </div>
+          <div class="glass panel reveal">
+            <h4>Rifiuti e caratterizzazione</h4>
+            <p class="lead">Gestiamo la caratterizzazione dei rifiuti con approccio tecnico-documentale, riducendo il
+              rischio di errori classificativi e contestazioni (attribuzione CER, HP, analisi mirate, coerenza con
+              processo produttivo).</p>
+            <h4>Attività tipiche</h4>
+            <ul class="ticks">
+              <li><strong>Classificazione rifiuti</strong>: supporto all'attribuzione del codice EER/CER e verifica
+                coerenza con ciclo produttivo.</li>
+              <li><strong>Caratterizzazione analitica</strong>: definizione pacchetto analisi in funzione della
+                destinazione (recupero/smaltimento) e delle richieste impiantistiche.</li>
+              <li><strong>Valutazioni di conformità</strong>: supporto per schede tecniche, dichiarazioni,
+                documentazione di tracciabilità.</li>
+              <li><strong>Ottimizzazione gestionale</strong>: riduzione costi/criticità tramite separazione corretta,
+                riduzione contaminazioni, scelta filiere.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="split" style="margin-top:18px">
+          <div class="glass panel reveal">
+            <h4>Aria, polveri e monitoraggi ambientali</h4>
+            <p class="lead">Eseguiamo e supportiamo monitoraggi ambientali orientati alla conformità e al controllo del
+              rischio (emissioni convogliate, polveri, qualità aria in ambienti di lavoro, verifiche su impianti e
+              sistemi di abbattimento).</p>
+            <h4>Servizi</h4>
+            <ul class="ticks">
+              <li><strong>Emissioni in atmosfera</strong>: supporto a campagne di controllo, impostazione parametri,
+                verifica prestazioni (filtri, carboni attivi, scrubber, ecc.).</li>
+              <li><strong>Polveri e particolato</strong>: monitoraggi e valutazioni tecniche in base al processo e agli
+                scenari espositivi/ambientali.</li>
+              <li><strong>Monitoraggi ambientali periodici</strong>: impostazione programmi, gestione trend, lettura
+                scostamenti e anomalie.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- SERVIZI -->
+    <section class="section" id="servizi">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>I nostri servizi</h3>
+            <p class="lead">Tre aree integrate per gestire l’azienda in modo completo: sicurezza sul lavoro, adempimenti ambientali e controlli analitici.</p>
+          </div>
+          <a class="btn" href="contatti.html">Parliamo del tuo caso</a>
+        </div>
+
+        <div class="cards3">
+          <article class="glass card reveal">
+            <div class="badge"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 64 64"><use href="#ico-helmet"></use></svg></span> Sicurezza sul Lavoro</div>
+            <h4>Valutazioni e gestione D.Lgs. 81/08</h4>
+            <ul>
+              <li>DVR e aggiornamenti periodici</li>
+              <li>POS / PSS e supporto cantieri</li>
+              <li>Rumore, vibrazioni, polveri, agenti chimici</li>
+              <li>Procedure, audit interni, piani di miglioramento</li>
+              <li>Formazione e informazione lavoratori</li>
+            </ul>
+            <div class="card-photo photo-frame" aria-hidden="true">
+              <img src="assetsimg/sicurezza.jpg" alt="Sicurezza sul lavoro in ambito industriale" loading="lazy" />
+            </div>
+
+          </article>
+
+          <article class="glass card reveal">
+            <div class="badge"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 64 64"><use href="#ico-leaf"></use></svg></span> Ambiente</div>
+            <h4>Adempimenti ambientali e autorizzazioni</h4>
+            <ul>
+              <li>Gestione rifiuti, registri e supporto operativo</li>
+              <li>Emissioni in atmosfera e verifiche tecniche</li>
+              <li>Scarichi idrici, suolo e acque reflue</li>
+              <li>Istruttorie e pratiche presso enti competenti</li>
+              <li>Piani di monitoraggio e conformità</li>
+            </ul>
+            <div class="card-photo photo-frame" aria-hidden="true">
+              <img src="assetsimg/ambiente.jpg" alt="Controlli ambientali e campionamenti" loading="lazy" />
+            </div>
+          </article>
+
+                    <article class="glass card reveal" id="laboratorio">
+            <div class="badge"><span class="icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 64 64">
+                  <use href="#ico-flask"></use>
+                </svg></span> Analisi & Laboratorio</div>
+            <h4>Acque (reflue, potabili, di processo)</h4>
+            <p class="lead">Offriamo un supporto completo per il controllo analitico e la gestione tecnica delle acque,
+              con impostazione coerente rispetto alla normativa e agli obiettivi del cliente (conformità,
+              autocontrollo, ottimizzazione impianto, riduzione criticità).</p>
+            <h4>Ambiti principali</h4>
+            <ul>
+              <li><strong>Acque reflue industriali e civili</strong>: verifiche di conformità allo scarico, controlli
+                periodici, supporto alla gestione di impianti di trattamento (verifica prestazioni, criticità
+                ricorrenti, stabilità del processo).</li>
+              <li><strong>Acque potabili</strong>: controlli di potabilità, piani di campionamento, gestione non
+                conformità (parametri microbiologici e chimici, trend, azioni correttive).</li>
+              <li><strong>Acque di processo</strong>: monitoraggi per qualità produttiva e prevenzione problemi
+                (depositi, corrosione, contaminazioni, stabilità di ciclo, riuso e ricircolo).</li>
+            </ul>
+            <h4>Rifiuti e caratterizzazione</h4>
+            <p class="lead">Gestiamo la caratterizzazione dei rifiuti con approccio tecnico-documentale, riducendo il
+              rischio di errori classificativi e contestazioni (attribuzione CER, HP, analisi mirate, coerenza con
+              processo produttivo).</p>
+            <h4>Attività tipiche</h4>
+            <ul>
+              <li><strong>Classificazione rifiuti</strong>: supporto all'attribuzione del codice EER/CER e verifica
+                coerenza con ciclo produttivo.</li>
+              <li><strong>Caratterizzazione analitica</strong>: definizione pacchetto analisi in funzione della
+                destinazione (recupero/smaltimento) e delle richieste impiantistiche.</li>
+              <li><strong>Valutazioni di conformità</strong>: supporto per schede tecniche, dichiarazioni,
+                documentazione di tracciabilità.</li>
+              <li><strong>Ottimizzazione gestionale</strong>: riduzione costi/criticità tramite separazione corretta,
+                riduzione contaminazioni, scelta filiere.</li>
+            </ul>
+            <h4>Aria, polveri e monitoraggi ambientali</h4>
+            <p class="lead">Eseguiamo e supportiamo monitoraggi ambientali orientati alla conformità e al controllo del
+              rischio (emissioni convogliate, polveri, qualità aria in ambienti di lavoro, verifiche su impianti e
+              sistemi di abbattimento).</p>
+            <h4>Servizi</h4>
+            <ul>
+              <li><strong>Emissioni in atmosfera</strong>: supporto a campagne di controllo, impostazione parametri,
+                verifica prestazioni (filtri, carboni attivi, scrubber, ecc.).</li>
+              <li><strong>Polveri e particolato</strong>: monitoraggi e valutazioni tecniche in base al processo e agli
+                scenari espositivi/ambientali.</li>
+              <li><strong>Monitoraggi ambientali periodici</strong>: impostazione programmi, gestione trend, lettura
+                scostamenti e anomalie.</li>
+            </ul>
+            <div class="card-photo photo-frame" aria-hidden="true">
+              <img src="assetsimg/laboratorio.jpg" alt="Analisi chimico-fisiche in laboratorio" loading="lazy" />
+            </div>
+            <a class="btn btn-ghost" href="laboratorio.html">Approfondisci</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- METODO -->
+    <section class="section" id="metodo">
+      <div class="wrap">
+        <div class="split">
+          <div class="glass panel reveal">
+            <h3>Il nostro metodo</h3>
+            <p class="lead">Un processo strutturato, trasparente e verificabile: riduce i tempi, limita gli errori e rende l’azienda più solida.</p>
+            <ul class="ticks">
+              <li><strong>Raccolta dati e sopralluogo</strong> (impianti, layout, ciclo produttivo, criticità)</li>
+              <li><strong>Analisi tecnica e normativa</strong> con individuazione delle azioni prioritarie</li>
+              <li><strong>Redazione documenti</strong> (piani, procedure, relazioni, registri)</li>
+              <li><strong>Supporto all’implementazione</strong> e formazione del personale</li>
+              <li><strong>Verifica e miglioramento continuo</strong> con controlli periodici</li>
+            </ul>
+          </div>
+
+          <div class="glass panel reveal">
+            <h3>Settori seguiti</h3>
+            <p class="lead">Esperienza trasversale con soluzioni adattate al contesto reale dell’impresa.</p>
+            <ul class="ticks">
+              <li>Industria e artigianato (produzione, logistica, manutenzioni)</li>
+              <li>Food & somministrazione (HACCP, igiene, controlli)</li>
+              <li>Enti pubblici e strutture ricettive</li>
+              <li>Impianti e attività soggette ad adempimenti ambientali</li>
+              <li>Attività temporanee e gestione tecnica dei rischi specifici</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUMERI -->
+    <section class="section" id="numeri">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Dati che fanno la differenza</h3>
+            <p class="lead">Sostituisci i placeholder con i tuoi valori reali (anni, aziende seguite, campionamenti/anno, ecc.).</p>
+          </div>
+          <span class="chip">📊 KPI & reportistica</span>
+        </div>
+
+        <div class="stats">
+          <div class="glass stat reveal">
+            <b>+30</b>
+            <span>Anni di esperienza tecnica</span>
+          </div>
+          <div class="glass stat reveal">
+            <b>+1000</b>
+            <span>Aziende ed enti supportati</span>
+          </div>
+          <div class="glass stat reveal">
+            <b>+1000</b>
+            <span>Ore di formazione erogate</span>
+          </div>
+          <div class="glass stat reveal">
+            <b>Laboratorio</b>
+            <span>Analisi chimico-fisiche e microbiologiche</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIANZE -->
+    <section class="section" id="testimonianze">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>Cosa dicono i clienti</h3>
+            <p class="lead">Puoi usare recensioni reali (consigliato), oppure lasciare testi generici come placeholder.</p>
+          </div>
+          <a class="btn" href="contatti.html">Richiedi referenze</a>
+        </div>
+
+        <div class="quotes">
+          <div class="glass quote reveal">
+            <p>“Supporto preciso e operativo: documentazione chiara e gestione dei tempi impeccabile.”</p>
+            <div class="who">
+              <div class="avatar" aria-hidden="true"></div>
+              <div>
+                <b>Responsabile di stabilimento</b>
+                <span>Settore industriale</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass quote reveal">
+            <p>“Ottimo equilibrio tra competenza normativa e pragmatismo in campo. Consigliatissimi.”</p>
+            <div class="who">
+              <div class="avatar" aria-hidden="true"></div>
+              <div>
+                <b>Datore di lavoro</b>
+                <span>Logistica e servizi</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass quote reveal">
+            <p>“Analisi e report davvero fruibili: finalmente dati utili per decisioni rapide.”</p>
+            <div class="who">
+              <div class="avatar" aria-hidden="true"></div>
+              <div>
+                <b>Amministrazione</b>
+                <span>Ente pubblico</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3>FAQ</h3>
+            <p class="lead">Domande frequenti che aumentano conversione e fiducia (puoi personalizzarle in 2 minuti).</p>
+          </div>
+          <span class="chip">✅ Trasparenza operativa</span>
+        </div>
+
+        <details class="reveal">
+          <summary>In quanto tempo ricevo un preventivo?</summary>
+          <p>Di norma entro 24–48 ore lavorative, dopo una prima raccolta dati (attività, sede, esigenze, eventuali scadenze).</p>
+        </details>
+        <details class="reveal">
+          <summary>Seguite anche pratiche con enti e portali telematici?</summary>
+          <p>Sì: istruttoria, verifica documentale e presentazione tramite i portali previsti (in base al tipo di pratica e all’ente competente).</p>
+        </details>
+        <details class="reveal">
+          <summary>È possibile un servizio “a pacchetto” mensile?</summary>
+          <p>Sì: supporto continuativo con audit periodici, aggiornamenti, formazione e gestione delle scadenze.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA / CONTATTI -->
+    <section class="section" id="contatti">
+      <div class="wrap">
+        <div class="glass cta reveal">
+          <div class="cta-grid">
+            <div>
+              <h3>Hai bisogno di una consulenza o di un adeguamento normativo?</h3>
+              <p>Scrivici per una valutazione preliminare: riceverai una proposta tecnica chiara e mirata.</p>
+            </div>
+            <a class="btn" href="mailto:amministrazione@gruppoatis.it">Contattaci via email</a>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="split">
+          <div class="glass panel reveal">
+            <h3>Contatti</h3>
+            <p class="lead">
+              <strong>Telefono:</strong> <a href="tel:082853366">0828 53366</a><br/>
+              <strong>Email:</strong> <a href="mailto:amministrazione@gruppoatis.it">amministrazione@gruppoatis.it</a><br/>
+              <strong>Sede:</strong> <a href="https://maps.google.com/?q=Via%20G.%20D%27Annunzio%2C%2021-29%2C%2084092%20Bellizzi%20(SA)" target="_blank" rel="noopener">Via G. D'Annunzio, 21-29 – 84092 Bellizzi (SA)</a>
+            </p>
+            <p class="lead">
+              <strong>Sede legale e operativa:</strong> <a href="https://maps.google.com/?q=Via%20G.%20D%27Annunzio%2C%2021-29%2C%2084092%20Bellizzi%20(SA)" target="_blank" rel="noopener">Via G. D'Annunzio, 21-29 – 84092 Bellizzi (SA)</a><br/>
+              <strong>P. IVA:</strong> 055845405651<br/>
+              <strong>Telefono:</strong> <a href="tel:082853366">0828 53366</a><br/>
+              <strong>Email:</strong>
+              <a href="mailto:amministrazione@gruppoatis.it">amministrazione@gruppoatis.it</a><br/>
+              <a href="mailto:areatecnica@gruppoatis.it">areatecnica@gruppoatis.it</a><br/>
+              <a href="mailto:laboratorio@gruppoatis.it">laboratorio@gruppoatis.it</a>
+            </p>
+            <p style="color:var(--muted); font-size:14px; margin:0">
+              Orari di reperibilità: Lun–Ven 9:00–18:00.
+            </p>
+          </div>
+
+          <div class="glass panel reveal">
+            <h3>Richiesta rapida</h3>
+            <p class="lead">Compila il form per una richiesta rapida: ti rispondiamo entro 24-48 ore lavorative.</p>
+            <form class="quick-form" action="mailto:amministrazione@gruppoatis.it" method="post" enctype="text/plain">
+              <label class="sr-only" for="qr-nome">Nome e cognome</label>
+              <input id="qr-nome" name="nome" type="text" placeholder="Nome e cognome" required />
+              <label class="sr-only" for="qr-email">Email</label>
+              <input id="qr-email" name="email" type="email" placeholder="Email" required />
+              <label class="sr-only" for="qr-telefono">Telefono</label>
+              <input id="qr-telefono" name="telefono" type="tel" placeholder="Telefono" />
+              <label class="sr-only" for="qr-msg">Messaggio</label>
+              <textarea id="qr-msg" name="messaggio" placeholder="Breve descrizione della richiesta"></textarea>
+              <button class="btn btn-primary" type="submit">Invia richiesta</button>
+            </form>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn btn-primary" href="servizi.html">Vai ai servizi</a>
+              <a class="btn btn-ghost" href="preventivo.html">Pagina preventivo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <strong>GRUPPO ATIS</strong><br/>
+          <span>Sicurezza • Ambiente • Qualità</span><br/>
+          <span>P. IVA: 055845405651</span><br/>
+          <span>Tel: <a href="tel:082853366">0828 53366</a></span><br/>
+          <a href="mailto:amministrazione@gruppoatis.it">amministrazione@gruppoatis.it</a><br/>
+          <a href="https://maps.google.com/?q=Via%20G.%20D%27Annunzio%2C%2021-29%2C%2084092%20Bellizzi%20(SA)" target="_blank" rel="noopener">Via G. D'Annunzio, 21-29 – 84092 Bellizzi (SA)</a>
+        </div>
+
+        <div class="small-links">
+          <a href="#">Privacy</a>
+          <a href="#">Cookie</a>
+          <a href="#">Note legali</a>
+        </div>
+      </div>
+
+      <div style="margin-top:12px; color:var(--muted)">
+        © <span id="year"></span> Gruppo ATIS – Tutti i diritti riservati.
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Torna su">↑</button>
+
+  <script>
+    // anno automatico
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobilePanel = document.getElementById("mobilePanel");
+    if (menuBtn && mobilePanel){
+      menuBtn.addEventListener("click", () => {
+        const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", String(!isOpen));
+        mobilePanel.hidden = isOpen;
+      });
+      // chiudi menu quando clicchi un link
+      mobilePanel.querySelectorAll("a").forEach(a => {
+        a.addEventListener("click", () => {
+          menuBtn.setAttribute("aria-expanded", "false");
+          mobilePanel.hidden = true;
+        });
+      });
+    }
+
+    // Theme toggle (dark/light)
+    const root = document.body;
+    const themeBtn = document.getElementById("themeBtn");
+    const themeIcon = document.getElementById("themeIcon");
+    const themeBtnMobile = document.getElementById("themeBtnMobile");
+    const themeIconMobile = document.getElementById("themeIconMobile");
+
+    function setTheme(theme){
+      root.setAttribute("data-theme", theme);
+      const isLight = theme === "light";
+      if (themeIcon) themeIcon.textContent = isLight ? "☀️" : "🌙";
+      if (themeIconMobile) themeIconMobile.textContent = isLight ? "☀️" : "🌙";
+      try{ localStorage.setItem("atis-theme", theme); }catch(e){}
+    }
+
+    const saved = (() => { try{ return localStorage.getItem("atis-theme"); }catch(e){ return null; } })();
+    if (saved === "light" || saved === "dark") setTheme(saved);
+
+    function toggleTheme(){
+      const current = root.getAttribute("data-theme") || "dark";
+      setTheme(current === "dark" ? "light" : "dark");
+    }
+    if (themeBtn) themeBtn.addEventListener("click", toggleTheme);
+    if (themeBtnMobile) themeBtnMobile.addEventListener("click", toggleTheme);
+
+    // Back to top
+    const toTop = document.getElementById("toTop");
+    function onScroll(){
+      if (!toTop) return;
+      if (window.scrollY > 700) toTop.classList.add("show");
+      else toTop.classList.remove("show");
+    }
+    window.addEventListener("scroll", onScroll, {passive:true});
+    if (toTop){
+      toTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+    }
+    onScroll();
+
+    // Reveal on scroll
+    const prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced){
+      const els = Array.from(document.querySelectorAll(".reveal"));
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("show"); });
+      }, {threshold: .12});
+      els.forEach(el => io.observe(el));
+    }else{
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("show"));
+    }
+  </script>
+
+</body>
+</html>
