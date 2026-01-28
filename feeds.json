@@ -1,7 +1,129 @@
 {
-  "generatedAtISO": "",
+  "generatedAtISO": "2026-01-28T15:07:33.179959Z",
   "topics": {
-    "sicurezza": [],
-    "ambiente": []
+    "sicurezza": [
+      {
+        "title": "Accordo Fitd e 5 banche per risanamento Banca Progetto",
+        "url": "https://www.ansa.it/sito/notizie/economia/2026/01/28/accordo-fitd-e-5-banche-per-risanamento-banca-progetto_4a51291c-bc4b-4c56-bcc5-1f0933e495b4.html",
+        "publishedAtISO": "2026-01-28T15:06:37Z",
+        "sourceName": "RSS di Economia  - ANSA.it"
+      },
+      {
+        "title": "Niscemi: dentro la zona rossa, strade e case collassate",
+        "url": "https://www.ansa.it/sito/notizie/cronaca/2026/01/28/niscemi-dentro-la-zona-rossa-strade-e-case-collassate-_e733e4be-727f-4f36-9c2b-56ebbc48decc.html",
+        "publishedAtISO": "2026-01-28T14:54:06Z",
+        "sourceName": "RSS di Cronaca  - ANSA.it"
+      },
+      {
+        "title": "Borsa: l'Europa in calo dopo Wall Street, Milano -0,6%",
+        "url": "https://www.ansa.it/sito/notizie/economia/2026/01/28/borsa-leuropa-in-calo-dopo-wall-street-milano-06_0453db0c-d03d-4170-bfb0-bf6a1f9fb6a1.html",
+        "publishedAtISO": "2026-01-28T14:50:24Z",
+        "sourceName": "RSS di Economia  - ANSA.it"
+      },
+      {
+        "title": "Wall Street apre in rialzo, S&P 500 supera per la prima volta i 7.000 punti",
+        "url": "https://www.ansa.it/sito/notizie/economia/2026/01/28/wall-street-apre-in-rialzo-sp-500-supera-per-la-prima-volta-i-7.000_e72e17e5-147f-4ad9-8cd9-19a1bce69de6.html",
+        "publishedAtISO": "2026-01-28T14:50:03Z",
+        "sourceName": "RSS di Economia  - ANSA.it"
+      },
+      {
+        "title": "Si indaga per disastro colposo, Meloni: 'Agiremo celermente'",
+        "url": "https://www.ansa.it/sito/notizie/cronaca/2026/01/28/meloni-a-niscemi-agiremo-celermente.-schifani-il-paese-rischia-di-crollare-danni-per_77bdf7ed-199b-4f0e-85e3-5e26472e4e8f.html",
+        "publishedAtISO": "2026-01-28T14:48:19Z",
+        "sourceName": "RSS di Cronaca  - ANSA.it"
+      },
+      {
+        "title": "Geologi, a Niscemi urbanizzazione incompatibile con il tipo di suolo",
+        "url": "https://www.ansa.it/sito/notizie/cronaca/2026/01/28/geologi-a-niscemi-urbanizzazione-incompatibile-con-il-tipo-di-suolo_4329290e-7738-4b65-a93d-25d60d5b4e40.html",
+        "publishedAtISO": "2026-01-28T14:43:04Z",
+        "sourceName": "RSS di Cronaca  - ANSA.it"
+      },
+      {
+        "title": "Migranti morti in esplosione barca, assolti in appello due finanzieri",
+        "url": "https://www.ansa.it/sito/notizie/cronaca/2026/01/28/migranti-morti-in-esplosione-barca-assolti-in-appello-due-finanzieri_f3ba48f4-513b-4eeb-a860-b307ba65e721.html",
+        "publishedAtISO": "2026-01-28T14:35:21Z",
+        "sourceName": "RSS di Cronaca  - ANSA.it"
+      },
+      {
+        "title": "Cirio a Schifani, Piemonte pronto ad aiutare per l'emergenza maltempo",
+        "url": "https://www.ansa.it/sito/notizie/cronaca/2026/01/28/cirio-a-schifani-piemonte-pronto-ad-aiutare-per-lemergenza-maltempo_96f49fb1-bb03-4b6a-af1c-2f3ee0b57732.html",
+        "publishedAtISO": "2026-01-28T14:30:42Z",
+        "sourceName": "RSS di Cronaca  - ANSA.it"
+      },
+      {
+        "title": "Caos per una festa abusiva in vetta ad un impianto di risalita, nove denunciati",
+        "url": "https://www.ansa.it/sito/notizie/cronaca/2026/01/28/caos-per-una-festa-abusiva-in-vetta-ad-un-impianto-di-risalita-nove-denunciati_14dd54aa-80cb-446f-93ee-b75f73a6719b.html",
+        "publishedAtISO": "2026-01-28T14:30:14Z",
+        "sourceName": "RSS di Cronaca  - ANSA.it"
+      },
+      {
+        "title": "Spiegel: \"Blitz e perquisizioni alla Deutsche Bank. Sospetto riciclaggio, indagini collegate ad Abramovich\"",
+        "url": "https://www.ansa.it/sito/notizie/economia/2026/01/28/spiegel-perquisizioni-alla-deutsche-bank-a-francoforte-e-berlino_12773796-ca0a-4d52-a4fe-b332ff3dccca.html",
+        "publishedAtISO": "2026-01-28T14:28:42Z",
+        "sourceName": "RSS di Economia  - ANSA.it"
+      }
+    ],
+    "ambiente": [
+      {
+        "title": "Díaz-Canel, 'le brutali minacce a Cuba non ci fermeranno'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/americalatina/2026/01/28/diaz-canel-le-brutali-minacce-a-cuba-non-ci-fermeranno_18e30df2-03f6-4fe4-a8bb-4bf2e625dfc8.html",
+        "publishedAtISO": "2026-01-28T14:49:49Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Fonti Ue, 'domani nessuna decisione attesa su pasdaran come terroristi'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/mediooriente/2026/01/28/fonti-ue-domani-nessuna-decisione-attesa-su-pasdaran-come-terroristi_c5518464-3ff9-46f7-8177-cb0e5d21e197.html",
+        "publishedAtISO": "2026-01-28T14:40:48Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Trump, il sindaco di Minneapolis sta giocando con il fuoco",
+        "url": "https://www.ansa.it/sito/notizie/mondo/nordamerica/2026/01/28/trump-il-sindaco-di-minneapolis-sta-giocando-con-il-fuoco_f544809e-fa2f-46c3-a21b-58c9473093ed.html",
+        "publishedAtISO": "2026-01-28T14:32:31Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Trump, 'deputata dem avrà orchestrato aggressione, un'imbrogliona'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/nordamerica/2026/01/28/trump-deputata-dem-avra-orchestrato-aggressione-unimbrogliona_cc11721a-0e25-40fc-b9c6-febb718ab953.html",
+        "publishedAtISO": "2026-01-28T14:29:31Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Starmer, preoccupa quanto accade in Minnesota per sparatorie Ice",
+        "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/01/28/starmer-preoccupa-quanto-accade-in-minnesota-per-sparatorie-ice_71449798-de8b-47aa-ae2e-aaf3d93fb459.html",
+        "publishedAtISO": "2026-01-28T14:24:38Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Indagato il sindaco di Budapest per il Pride, 'non mi lascerò intimidire'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/01/28/indagato-il-sindaco-di-budapest-per-il-pride-non-mi-lascero-intimidire_3c1198e4-6574-4c42-b2a7-a890eb9bd8ab.html",
+        "publishedAtISO": "2026-01-28T14:20:31Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Delcy Rodríguez, 'con Trump e Rubio dialogo diretto e continuo'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/americalatina/2026/01/28/delcy-rodriguez-con-trump-e-rubio-dialogo-diretto-e-continuo_03372973-c409-4cdf-a8a2-16d898dfa406.html",
+        "publishedAtISO": "2026-01-28T13:57:40Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Argentina, Milei torna a cantare con l'ex compagna sul palco",
+        "url": "https://www.ansa.it/sito/notizie/mondo/americalatina/2026/01/28/argentina-milei-torna-a-cantare-con-lex-compagna-sul-palco_dfca3652-55d4-41cc-bf8e-04de7101fb83.html",
+        "publishedAtISO": "2026-01-28T13:13:30Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Trump, 'il tempo stringe, l'Iran si sieda al tavolo e negozi'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/mediooriente/2026/01/28/trump-il-tempo-stringe-liran-si-sieda-al-tavolo-e-negozi_c5735ace-8787-41b8-8c56-c6291ca32d1c.html",
+        "publishedAtISO": "2026-01-28T12:35:11Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      },
+      {
+        "title": "Indagato il sindaco di Budapest per il Pride, 'non mi lascerò intimidire'",
+        "url": "https://www.ansa.it/sito/notizie/mondo/europa/2026/01/28/indagato-il-sindaco-di-budapest-per-il-pride-non-mi-lascero-intimidire_5c827a45-35a8-4f81-87d0-c708d003b8c1.html",
+        "publishedAtISO": "2026-01-28T12:20:32Z",
+        "sourceName": "RSS di Mondo  - ANSA.it"
+      }
+    ]
   }
 }

@@ -613,15 +613,18 @@
     .card li {
       margin: 6px 0
     }
+
     .feed-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 12px;
       margin-top: 12px;
     }
+
     .feed-card {
       padding: 16px
     }
+
     .feed-meta {
       display: flex;
       justify-content: space-between;
@@ -631,14 +634,17 @@
       margin-top: 8px;
       flex-wrap: wrap;
     }
+
     .feed-meta a {
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+
     .feed-actions {
       margin-top: 10px
     }
+
     .news-intro {
       margin-top: 6px;
       color: var(--muted);
@@ -656,6 +662,7 @@
       margin-top: 12px;
       overflow: hidden;
     }
+
     .ticker-label {
       font-size: 11px;
       letter-spacing: .08em;
@@ -663,11 +670,13 @@
       color: var(--muted);
       white-space: nowrap;
     }
+
     .ticker-track {
       position: relative;
       overflow: hidden;
       width: 100%;
     }
+
     .ticker-items {
       display: inline-flex;
       align-items: center;
@@ -676,28 +685,40 @@
       width: max-content;
       animation: ticker-scroll var(--ticker-duration, 48s) linear infinite;
     }
+
     .ticker-items a {
       color: var(--text);
       text-decoration: none;
     }
+
     .ticker-items a:hover {
       text-decoration: underline;
       text-underline-offset: 2px;
     }
+
     .ticker-sep {
       color: var(--muted);
     }
+
     .news-ticker.is-empty .ticker-items {
       animation: none;
     }
+
     .ticker-empty {
       color: var(--muted);
       font-size: 13px;
     }
+
     @keyframes ticker-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
       .ticker-items {
         animation: none;
@@ -1264,7 +1285,7 @@
   </style>
 </head>
 
-<body data-theme="dark" data-page="news" data-feeds-src="../feeds.json">
+<body data-theme="dark" data-page="news" data-feeds-src="feeds.json">
 
   <!-- Inline SVG symbols (no external assets) -->
   <svg class="sr-only" width="0" height="0" aria-hidden="true" focusable="false">
@@ -1361,7 +1382,7 @@
   </header>
 
   <main id="top">
-  <!-- NEWS -->
+    <!-- NEWS -->
     <section class="section" id="news">
       <div class="wrap">
         <div class="section-title">
@@ -1373,7 +1394,8 @@
           <a class="btn" href="news/ambiente.html">Vai all'altra categoria</a>
         </div>
 
-                <div class="news-ticker glass" data-feed-ticker="sicurezza" data-limit="12" aria-label="Aggiornamenti normativi in tempo reale">
+        <div class="news-ticker glass" data-feed-ticker="sicurezza" data-limit="12"
+          aria-label="Aggiornamenti normativi in tempo reale">
           <span class="ticker-label">Aggiornamenti normativi</span>
           <div class="ticker-track">
             <div class="ticker-items"></div>
@@ -1382,9 +1404,9 @@
         <div class="feed-grid" data-feed-topic="sicurezza" data-limit="10"></div>
       </div>
     </section>
-    </main>
+  </main>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <div class="wrap">
       <div class="foot-grid">
@@ -1498,7 +1520,7 @@
         .replace(/'/g, "&#39;");
     }
 
-        async function loadFeeds() {
+    async function loadFeeds() {
       const feedsSrc = document.body.getAttribute("data-feeds-src");
       if (!feedsSrc) return;
       const containers = Array.from(document.querySelectorAll("[data-feed-topic]"));
@@ -1604,8 +1626,3 @@
 </body>
 
 </html>
-
-
-
-
-

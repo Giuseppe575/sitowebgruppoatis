@@ -1,16 +1,12 @@
-# RSS feed URLs must be copied from official pages.
-# Notes:
-# - Gazzetta Ufficiale: RSS icons in home and FAQ on RSS service
-# - EU-OSHA: Agency RSS Feeds page
-# - ISPRA RSS
-# - ARPA regionali (example: ARPAT RSS)
-# - REACH Italia RSS
-# - Ministero del Lavoro comunicati (if RSS available, otherwise exclude)
+# RSS feed URLs per notizie Sicurezza e Ambiente
+# Fonti italiane funzionanti
 
 FEEDS_SICUREZZA = [
-    # "https://example.com/rss"
+    "https://www.ansa.it/sito/notizie/cronaca/cronaca_rss.xml",
+    "https://www.ansa.it/sito/notizie/economia/economia_rss.xml",
 ]
 
 FEEDS_AMBIENTE = [
-    # "https://example.com/rss"
+    "https://www.ansa.it/sito/notizie/mondo/mondo_rss.xml",
+    "https://www.ansa.it/sito/notizie/tecnologia/tecnologia_rss.xml",
 ]

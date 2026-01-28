@@ -153,17 +153,27 @@ def _collect_items(urls, cache):
         cached_at = cache["fetchedAtByUrl"].get(url, 0)
         cached_items = cache["itemsByUrl"].get(url, [])
         if now - cached_at < CACHE_TTL_SECONDS and cached_items:
+            # Restore _publishedDt from cached items
+            for it in cached_items:
+                it["_publishedDt"] = _parse_date(it.get("publishedAtISO", ""))
             items.extend(cached_items)
             continue
 
         try:
             xml_bytes = _fetch_feed(url)
             parsed_items = _parse_feed(xml_bytes, url)
+            # Store items without _publishedDt for JSON serialization
+            cache_items = []
+            for it in parsed_items:
+                cache_item = {k: v for k, v in it.items() if k != "_publishedDt"}
+                cache_items.append(cache_item)
             cache["fetchedAtByUrl"][url] = now
-            cache["itemsByUrl"][url] = parsed_items
+            cache["itemsByUrl"][url] = cache_items
             items.extend(parsed_items)
         except Exception:
             if cached_items:
+                for it in cached_items:
+                    it["_publishedDt"] = _parse_date(it.get("publishedAtISO", ""))
                 items.extend(cached_items)
 
     return items
